@@ -1,0 +1,42 @@
+#app h1 {
+    color: #292F33;
+}
+
+#app h2 {
+    color: #CCD6DD;
+}
+
+#app h3 {
+    color: #55ACEE;
+}
+
+#app h5 {
+    color: #66757F;
+}
+
+span.org {
+    color: #CCD6DD;
+}
+
+#app {
+    margin: 0;
+}
+
+#three > canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#playground {
+    padding: 0;
+}
+
+#links {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+}
+
+#links svg {
+    color: #292F33;
+}
