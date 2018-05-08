@@ -17,7 +17,7 @@ import OrbitalRock from '../models/OrbitalRock';
 
 // Creates and renders a Three.js scene containing a rotating
 // models of a mini world and some rocks that orbit it.
-export default (container, width, height) => {
+export default container => {
     const NUM_ROCKS = 20;
     const WORLD_MODEL_PATH = 'data:application/json,' + JSON.stringify(SmallWorld);
     const ROCK_MODEL_PATH = 'data:application/json,' + JSON.stringify(OrbitalRock);
@@ -28,16 +28,14 @@ export default (container, width, height) => {
     var rockModels = [];
 
     // Init camera
-    camera = new PerspectiveCamera(
-        70, window.innerWidth / window.innerHeight, 1, 10000
-    );
+    camera = new PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 10000);
     camera.position.z = 5;
     camera.position.x = 7;
 
     // Init renderer
     renderer = new WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0xf0f0f0);
+    renderer.setClearColor(0xfafafa);
     renderer.gammaOutput = true;
     container.appendChild(renderer.domElement);
 
@@ -114,9 +112,9 @@ export default (container, width, height) => {
                 for (var i = 0; i < numRockModels; i++) {
                     const rockMaterial = new MultiMaterial(material);
                     const model = new Mesh(geometry, rockMaterial);
-                    const modelScale = Math.random() / 2 + 0.1;
+                    const modelScale = Math.random() / 3 + 0.1;
 
-                    model.position.set(Math.random() * 4 + 5, Math.random() * 4 + 1, Math.random() * 4 + 1);
+                    model.position.set(Math.random() * 4 + 2, Math.random() * 4 + 1, Math.random() * 4 + 1);
                     model.radius = model.position.length();
                     model.scale.set(modelScale, modelScale, modelScale);
 
@@ -163,9 +161,36 @@ export default (container, width, height) => {
             const x = i + 1;
             const theta = tick * x / (NUM_ROCKS * 1.5);
 
-            rock.position.x = rock.radius * Math.sin(theta - i);
-            rock.position.y = rock.radius * Math.sin(theta - 1.2 * i);
-            rock.position.z = rock.radius * Math.cos(theta - i);
+            if (i % 6 === 1) {
+                rock.position.x = rock.radius * Math.sin(theta + i);
+                rock.position.y = rock.radius * Math.sin(theta + i);
+                rock.position.z = rock.radius * Math.cos(theta + i);
+            }
+            else if (i % 6 === 2) {
+                rock.position.x = rock.radius * Math.sin(theta + i);
+                rock.position.y = rock.radius * Math.cos(theta + i);
+                rock.position.z = rock.radius * Math.sin(theta + i);
+            }
+            else if (i % 6 === 3) {
+                rock.position.x = rock.radius * Math.cos(theta + i);
+                rock.position.y = rock.radius * Math.sin(theta + i);
+                rock.position.z = rock.radius * Math.sin(theta + i);
+            }
+            else if (i % 6 === 4) {
+                rock.position.x = rock.radius * Math.sin(theta + i);
+                rock.position.y = rock.radius * Math.cos(theta + i);
+                rock.position.z = rock.radius * Math.cos(theta + i);
+            }
+            else if (i % 6 === 5) {
+                rock.position.x = rock.radius * Math.cos(theta + i);
+                rock.position.y = rock.radius * Math.cos(theta + i);
+                rock.position.z = rock.radius * Math.sin(theta + i);
+            }
+            else if (i % 6 === 0) {
+                rock.position.x = rock.radius * Math.cos(theta + i);
+                rock.position.y = rock.radius * Math.sin(theta + i);
+                rock.position.z = rock.radius * Math.cos(theta + i);
+            }
 
             rock.rotateX(i / (Math.pow(NUM_ROCKS, 2)));
             rock.rotateY(i / (Math.pow(NUM_ROCKS, 3)));

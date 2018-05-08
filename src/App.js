@@ -1,28 +1,36 @@
 import React, { Component } from 'react';
-import ThreeComponent from './three/ThreeComponent.js';
+import PlanetScene from './three/PlanetScene';
 import IonIcon from 'react-ionicons';
 import './App.css';
 
 
 export default class App extends Component {
     componentDidMount() {
-        ThreeComponent(this.threeRootElement);
+        PlanetScene(this.threeRootElement);
     }
 
     render() {
         return (
             <div className='container-fluid' id='app'>
-                <div className='row'>
+                <div className='container-fluid header'>
+                    <div id='three' ref={element => this.threeRootElement = element}></div>
+                </div>
+                <div className='row' id='title-container'>
                     <div className='col'>
-                        <Links />
                         <h1>Bruno Bachmann</h1>
                         <h2>Software Engineer</h2>
-                        <Projects />
-                        <Experience />
-                        <Education />
                     </div>
-                    <div className='col' id='playground'>
-                        <div id='three' ref={element => this.threeRootElement = element}></div>
+                    <div className='col'>
+                        <Links />
+                    </div>
+                </div>
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col' id='info'>
+                            <Projects />
+                            <Experience />
+                            <Education />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -71,6 +79,10 @@ class Experience extends Component {
         return (
             <div id='experience'>
                 <h3>Experience</h3>
+                <h5>
+                    <span>Co-president </span>
+                    <span className='org'>| UBC Launch Pad</span>
+                </h5>
                 <h5>
                     <span>Intern, Software Engineer </span>
                     <span className='org'>| Demonware</span>
