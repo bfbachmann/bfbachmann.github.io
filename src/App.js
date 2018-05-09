@@ -1,12 +1,43 @@
 import React, { Component } from 'react';
 import PlanetScene from './three/PlanetScene';
 import IonIcon from 'react-ionicons';
+import $ from 'jquery';
 import './App.css';
 
 
 export default class App extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { buttonState: '' };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
     componentDidMount() {
+        // Set up scene
         PlanetScene(this.threeRootElement);
+        // Add smooth scrolling to all links
+    }
+
+    handleClick(event) {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        if (this.state.buttonState == '') {
+            $('html, body').animate({
+                scrollTop: $('#content').offset().top
+            }, 800, function () {
+                window.location.hash = '#content';
+            });
+            this.setState({ buttonState: ' up' });
+        } else {
+            $('html, body').animate({
+                scrollTop: $('#app').offset().top
+            }, 800, function () {
+                window.location.hash = '#app';
+            });
+            this.setState({ buttonState: '' });
+        }
     }
 
     render() {
@@ -24,8 +55,16 @@ export default class App extends Component {
                         <Links />
                     </div>
                 </div>
+                <div id='arrow-down'>
+                    <a href='#content' id='scroll-link'>
+                        <button type='button' className={'btn btn-light' + this.state.buttonState} id='btn-arrow-down' onClick={this.handleClick}>
+                            <IonIcon type='ionicon' fontSize='4em' icon='ios-arrow-down' id='arrow-icon' />
+                        </button>
+                    </a>
+                </div>
                 <div className='container'>
                     <div className='row'>
+                        <a id='content'></a>
                         <div className='col' id='info'>
                             <Projects />
                             <Experience />

@@ -25,7 +25,6 @@ span.org {
 
 #three > canvas {
     width: 100% !important;
-    height: 100% !important;
 }
 
 #playground {
@@ -55,8 +54,30 @@ span.org {
     top: 0em;
     width: 100%;
     padding: 2em;
+    margin: 0 auto;
 }
 
 #links svg {
     color: #292F33;
+}
+
+#arrow-down {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#btn-arrow-down {
+    border-bottom-left-radius: 0em;
+    border-bottom-right-radius: 0em;
+    opacity: 0.8;
+    border: none;
+}
+
+.up {
+    transform: rotate(180deg);
 }
