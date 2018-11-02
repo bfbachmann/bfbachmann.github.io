@@ -1,6 +1,7 @@
 #app {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 #app h1 {
@@ -13,10 +14,15 @@
 
 #app h3 {
     color: #55ACEE;
+    margin-bottom: 1em;
 }
 
-#app h5 {
+#app h4 {
     color: #66757F;
+}
+
+#profile h4 {
+    color: #292F33;
 }
 
 span.org {
@@ -45,10 +51,6 @@ span.org {
     text-align: right;
 }
 
-#app #info {
-    padding-left: 2em;
-}
-
 #title-container {
     position: absolute;
     top: 0em;
@@ -57,27 +59,61 @@ span.org {
     margin: 0 auto;
 }
 
+#profile img {
+    width: 100%;
+    border-radius: 5px;
+}
+
 #links svg {
     color: #292F33;
 }
 
-#arrow-down {
-    position: absolute;
-    bottom: 0;
+img.project-img {
+    max-height: 15em;
+    border-radius: 6px;
+    margin: 1em;
+}
+
+.project-img-container {
     text-align: center;
-    left: 0;
-    right: 0;
-    background-color: transparent;
-    border-color: transparent;
 }
 
-#btn-arrow-down {
-    border-bottom-left-radius: 0em;
-    border-bottom-right-radius: 0em;
-    opacity: 0.8;
-    border: none;
+#rocket {
+    background-attachment: fixed;
+    background-size: 100%;
 }
 
-.up {
-    transform: rotate(180deg);
+#cumulus {
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+#silver-screen {
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+p.project-description {
+    margin-bottom: 0em;
+}
+
+div.project {
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0);
+    transition: 0.3s;
+    margin: 0px 5px 15px 0px;
+    border-radius: 4px;
+}
+
+div.project:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+ul#training {
+    list-style-type: none;
+    padding-left: inherit;
+}
+
+.content {
+    margin-top: 1em;
 }

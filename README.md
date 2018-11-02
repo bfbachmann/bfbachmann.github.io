@@ -1,3 +1,3 @@
 # bfbachmann.github.io
 
-My new website built on React.
+My website built on React.
