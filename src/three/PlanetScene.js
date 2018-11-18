@@ -47,7 +47,6 @@ export default container => {
     // Load 3D models and start animation
     initModels(scene, WORLD_MODEL_PATH, ROCK_MODEL_PATH, NUM_ROCKS);
 
-
     // Sets up camera controls
     function initControls(camera, container, renderer, scene) {
         const controls = new TrackballControls(camera, container);
@@ -58,13 +57,18 @@ export default container => {
         return controls;
     }
 
+    // Attatch window resize handler
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }, false);
 
     // Sets up ambient light
     function initAmbientLight(scene) {
         const light = new AmbientLight(0xf0f0f0, 2); // soft white light
         scene.add(light);
     }
-
 
     // Sets up spot light
     function initSpotLight(scene) {
@@ -78,7 +82,6 @@ export default container => {
         spotLight.shadow.camera.fov = 30;
         scene.add(spotLight);
     }
-
 
     // Loads 3D models into scene from JSON files
     function initModels(scene, worldModelPath, rockModelPath, numRockModels) {
@@ -129,7 +132,6 @@ export default container => {
         );
     }
 
-
     // Amimate the scene
     function animate() {
         renderer.render(scene, camera);
@@ -139,13 +141,11 @@ export default container => {
         animateRockModels(rockModels);
     }
 
-
     // Animates 3D world model
     function animateWorldModel(model) {
         model.rotation.x += 0.001;
         model.rotation.y += 0.003;
     }
-
 
     // Animates 3D rocket models
     function animateRockModels(rockModels) {
@@ -165,28 +165,23 @@ export default container => {
                 rock.position.x = rock.radius * Math.sin(theta + i);
                 rock.position.y = rock.radius * Math.sin(theta + i);
                 rock.position.z = rock.radius * Math.cos(theta + i);
-            }
-            else if (i % 6 === 2) {
+            } else if (i % 6 === 2) {
                 rock.position.x = rock.radius * Math.sin(theta + i);
                 rock.position.y = rock.radius * Math.cos(theta + i);
                 rock.position.z = rock.radius * Math.sin(theta + i);
-            }
-            else if (i % 6 === 3) {
+            } else if (i % 6 === 3) {
                 rock.position.x = rock.radius * Math.cos(theta + i);
                 rock.position.y = rock.radius * Math.sin(theta + i);
                 rock.position.z = rock.radius * Math.sin(theta + i);
-            }
-            else if (i % 6 === 4) {
+            } else if (i % 6 === 4) {
                 rock.position.x = rock.radius * Math.sin(theta + i);
                 rock.position.y = rock.radius * Math.cos(theta + i);
                 rock.position.z = rock.radius * Math.cos(theta + i);
-            }
-            else if (i % 6 === 5) {
+            } else if (i % 6 === 5) {
                 rock.position.x = rock.radius * Math.cos(theta + i);
                 rock.position.y = rock.radius * Math.cos(theta + i);
                 rock.position.z = rock.radius * Math.sin(theta + i);
-            }
-            else if (i % 6 === 0) {
+            } else if (i % 6 === 0) {
                 rock.position.x = rock.radius * Math.cos(theta + i);
                 rock.position.y = rock.radius * Math.sin(theta + i);
                 rock.position.z = rock.radius * Math.cos(theta + i);

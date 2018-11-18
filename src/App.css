@@ -9,7 +9,7 @@
 }
 
 #app h2 {
-    color: #CCD6DD;
+    color: #66757F;
 }
 
 #app h3 {
@@ -26,7 +26,7 @@
 }
 
 span.org {
-    color: #CCD6DD;
+    color: #66757F;
 }
 
 #three > canvas {
@@ -98,15 +98,7 @@ p.project-description {
 }
 
 div.project {
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0);
-    transition: 0.3s;
     margin: 0px 5px 15px 0px;
-    border-radius: 4px;
-}
-
-div.project:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 ul#training {
@@ -114,6 +106,7 @@ ul#training {
     padding-left: inherit;
 }
 
-.content {
+#content {
     margin-top: 1em;
+    max-width: 900px;
 }

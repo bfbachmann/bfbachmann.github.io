@@ -5,7 +5,6 @@ import './App.css';
 import cumulus from './images/cumulus.png';
 import rocketSlack from './images/rocket-slack.png';
 import silverScreen from './images/silver-screen.png';
-import Profile from './images/me.jpg';
 
 export default class App extends Component {
 
@@ -29,37 +28,9 @@ export default class App extends Component {
                         <Links />
                     </div>
                 </div>
-                <div className='container content'>
-                    <div className='row'>
-                        <div className='col-3' id='profile'>
-                            <img src={Profile} />
-                            <h4>Bruno Bachmann</h4>
-                            <h6>UBC Computer Engineer</h6>
-                            <b>Formal Education</b>
-                            <ul id='training'>
-                                <li>Computer Security</li>
-                                <li>Distributed Systems</li>
-                                <li>Operating Systems</li>
-                                <li>Computer Architecture</li>
-                                <li>Hardware Design</li>
-                                <li>Parallel Computing</li>
-                            </ul>
-                        </div>
-                        <div className='col-9'>
-                            <ul className='nav nav-tabs nav-fill'>
-                                <li className='active'>
-                                    <a data-toggle='tab' href='#projects'>Projects</a>
-                                </li>
-                                <li>
-                                    <a data-toggle='tab' href='#experience'>Work Experience</a>
-                                </li>
-                            </ul>
-                            <div className='tab-content'>
-                                <Projects />
-                                <Experience />
-                            </div>
-                        </div>
-                    </div>
+                <div className='container' id='content'>
+                    <Projects />
+                    <Experience />
                 </div>
             </div>
         );
@@ -89,8 +60,8 @@ class Links extends Component {
 class Projects extends Component {
     render() {
         return (
-            <div id='projects' className='tab-pane fade in active'>
-                <h3>Projects</h3>
+            <div id='projects'>
+                <h3>Recent Projects</h3>
                 <div id='cumulus' className='project'>
                     <h4>Cumulus</h4>
                     <div className='project-img-container'>
@@ -144,35 +115,35 @@ class Projects extends Component {
 class Experience extends Component {
     render() {
         return (
-            <div id='experience' className='tab-pane fade'>
+            <div id='experience'>
                 <h3>Work Experience</h3>
                 <h5>
                     <span>Co-president &amp; Tech Lead </span>
                     <span className='org'>| UBC Launch Pad</span>
                 </h5>
                 <p>
-                UBC Launch Pad is a student-run software engineering team devoted to building software projects in a collaborative and professional environment. As co-president I oversee over 70 students accross 6 separate teams as they develop open-source software. A large portion of my role involves menoring developers and technical leads, ensuring that our members are happy and are learning valuable skills, and that they have the resources they need to realize their ideas.
+                    UBC Launch Pad is a student-run software engineering team devoted to building software projects in a collaborative and professional environment. As co-president I oversee over 60 students across 6 separate teams as they develop open-source software. A significant portion of my role involves mentoring developers and technical leads, ensuring that our members are happy and are learning valuable skills, and that they have the resources they need to realize their ideas.
                 </p>
                 <h5>
                     <span>Intern, Software Engineer </span>
                     <span className='org'>| Demonware</span>
                 </h5>
                 <p>
-                    Leveraging the power of Kubernetes and Python, I developed a tool for load testing web services for Call of Duty Black Ops 4. The tool gave Demonware and Blizzard developoers the ability to write simple yet powerful Python models of probabilistic player behaviour that could be manipulated accross Kubernetes pods on the fly. Using the simple interface and fine-grained metrics the tool provided, developers ran millions of simultaneous user simulations almost daily, with login spikes of up to 2000 users per second.
+                    Leveraging the power of Kubernetes and Python, I developed a tool for load testing web services for Call of Duty Black Ops 4. The tool gave Demonware and Blizzard developers the ability to write simple yet powerful Python models of probabilistic player behaviour that could be manipulated across Kubernetes pods on the fly. Developers used this tool to run millions of simultaneous user simulations almost daily, with login spikes of up to 2000 users per second.
                 </p>
                 <h5>
                     <span>Intern, Agile Developer </span>
                     <span className='org'>| SAP</span>
                 </h5>
                 <p>
-                    I worked in the data acquisition area of SAP Analytics Cloud, handling connections with a wide range of data- storage systems from SQL databases to Google Big Query and Salesforce. My work was done on the front end, as well as our core backend and microservices to move data through our systems in as safe and efficient a manner as possible.
+                    I worked in the data acquisition area of SAP Analytics Cloud, handling connections with a wide range of data- storage systems from SQL databases to Google Big Query and Salesforce. My work was done on the front end, as well as our core backend and micro-services to move data through our systems in as safe and efficient a manner as possible.
                 </p>
                 <h5>
                     <span>Intern, Web Developer </span>
                     <span className='org'>| UBC Faculty of Education</span>
                 </h5>
                 <p>
-                    I helped develop the Scarfe Digital Sandbox, an online resource for UBC teacher candidates, in collaboration with another co-op student over the course of 4 months. One of the feature I was responsible for developing was the Learning Resources page with extensive search, sort and filter functionality that allowed users to find information efficiently.
+                    I helped develop an online resource for UBC teacher candidates, in collaboration with another co-op student over the course of 4 months. One of the feature I was responsible for developing was the Learning Resources page with extensive search, sort and filter functionality that allowed users to find information efficiently.
                 </p>
             </div>
         );
