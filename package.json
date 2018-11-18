@@ -1,9 +1,11 @@
 {
   "name": "bfbachmann.github.io",
+  "homepage": "https://bfbachmann.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "gh-pages": "^2.0.1",
     "hover.css": "^2.3.1",
     "jquery": "^3.3.1",
     "react": "^16.3.2",
@@ -15,6 +17,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
