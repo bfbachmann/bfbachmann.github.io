@@ -64,6 +64,10 @@ span.org {
     border-radius: 5px;
 }
 
+canvas:hover {
+    cursor: move;
+}
+
 #links svg {
     color: #292F33;
 }
